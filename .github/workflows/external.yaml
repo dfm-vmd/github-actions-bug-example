@@ -1,8 +1,10 @@
 name: Display a bug -- external file
 
 on:
-  workflow_call
-
+  workflow_call:
+    outputs:
+      token:
+        value: ${{ jobs.external-file-output.outputs.token }}
 jobs:
   external-file-output:
     runs-on: ubuntu-latest
