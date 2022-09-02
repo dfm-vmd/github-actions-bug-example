@@ -16,7 +16,7 @@ jobs:
 
   external-file-output:
     uses: ./.github/workflows/external.yaml
-  
+
   main:
     runs-on: ubuntu-latest
     needs: 
