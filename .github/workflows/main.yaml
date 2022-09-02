@@ -15,8 +15,8 @@ jobs:
         run: echo "::set-output name=token::Inside" 
 
   external-file-output:
-    uses: ./.github/workflows/external.yaml
-  
+    - uses: ./.github/workflows/external.yaml
+      id: external-file-output
   main:
     runs-on: ubuntu-latest
     needs: 
@@ -26,4 +26,4 @@ jobs:
       - name: main
         run: |  
          echo "This should say inside: '${{ needs.in-file-output.outputs.token }}'"
-         echo "This should say outside: '${{ needs.external-file-output.outputs.token }}"
+         echo "This should say outside: '${{ needs.external-file-output.outputs.token }}'"
