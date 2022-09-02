@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get Token
         id: get-token
-        run: echo "::set-output name=token::This one is generated inside main script" 
+        run: echo "::set-output name=token::Inside" 
 
   main:
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
     steps:
       - name: main
         run: |  
-          echo ${{ needs.in-file-output.outputs.token }}
+          echo "This should say inside: '${{ needs.in-file-output.outputs.token }}'"
