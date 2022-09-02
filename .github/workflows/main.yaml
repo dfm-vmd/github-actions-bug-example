@@ -15,7 +15,7 @@ jobs:
         run: echo "::set-output name=token::Inside"
 
   external-file-output:
-    - uses: ./.github/workflows/external.yaml
+    uses: ./.github/workflows/external.yaml
 
   main:
     runs-on: ubuntu-latest
