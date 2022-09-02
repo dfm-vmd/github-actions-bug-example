@@ -26,4 +26,4 @@ jobs:
       - name: main
         run: |
           echo "This should say inside: '${{ needs.in-file-output.outputs.token }}'"
-          echo "This should say outside: '${{ needs.external-file-output.outputs.token }}'"
+          echo "This should say outside: '${{ needs.external-file-output.outputs.token.value }}'"
