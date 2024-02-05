@@ -13,3 +13,8 @@ jobs:
     steps:
       - name: branch
         run: echo "I'm running in branch ${{ github.event.workflow_run.head_branch }}"
+
+      - name: checkout
+        uses: checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
