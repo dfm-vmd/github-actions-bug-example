@@ -10,5 +10,5 @@ jobs:
       - name: start
         run: echo "I'm running on branch ${{ github.ref_name }}"
       - name: check something
-        if: contains('0.0.1rc1', ['a','b','c'])
+        if: contains(['*a*', '*b*', '*c*'], '0.0.1rc1')
         run: echo "POPOPOPO"
