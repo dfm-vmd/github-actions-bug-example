@@ -1,29 +1,15 @@
-name: Display a bug
+name: step 2
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows:
+      - "step 1"
+    types:
+      - completed
 
 jobs:
-  in-file-output:
+  print-branch:
     runs-on: ubuntu-latest
-    outputs:
-      token: ${{ steps.get-token.outputs.token }}
     steps:
-      - name: Get Token
-        id: get-token
-        run: echo "::set-output name=token::Inside"
-
-  external-file-output:
-    uses: ./.github/workflows/external.yaml
-
-  main:
-    runs-on: ubuntu-latest
-    needs:
-      - in-file-output
-      - external-file-output
-    steps:
-      - name: main
-        run: |
-          echo "This should say inside: '${{ needs.in-file-output.outputs.token }}'"
-          echo "This should say outside: '${{ needs.external-file-output.outputs.token }}'"
+      - name: branch
+        run: echo "the branch"
