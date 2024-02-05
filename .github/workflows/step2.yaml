@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: branch
-        run: echo "the branch"
+        run: echo "I'm running in branch ${{ github.event.workflow_run.head_branch }}"
